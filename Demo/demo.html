@@ -1,0 +1,41 @@
+
+<html >
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    <script>
+        var app=angular.module('myapp',[]);
+        app.controller('first',function($scope){
+        $scope.studentNo='01';
+        $scope.studentName='天才';
+        $scope.Totle=function(){
+            return $scope.studentNo+''+$scope.studentName;
+        }
+    })
+    </script>
+    <script scr="assets/js/namesController.js"></script>
+    </head>
+    <body>
+        <div ng-app='myapp' ng-controller='first'>
+            <input type="text" ng-model='studentNo'></br></br>
+            <input type="text" ng-model='studentName'></br>
+            学号：{{studentNo}}</br></br>
+            姓名：{{studentName}}</br></br>
+            总称：{{studentNo}}号{{studentName}}</br></br>
+            {{Totle()}}
+        </div>
+        <div ng-app='youapp' ng-controller='second'>
+            <ul ng-repeat="x in names">
+                <li>
+                    {{ x.name + ', ' + x.country }}
+                </li>
+            </ul>  
+        </div>
+    </body>
+</html>
+
+
+
+<!--         Your name: <input type="text" ng-model="yourname" placeholder="World">
+<hr>
+Hello {{yourname || 'World'}}! -->
