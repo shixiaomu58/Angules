@@ -2,40 +2,56 @@
 <html >
     <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-    <script>
-        var app=angular.module('myapp',[]);
-        app.controller('first',function($scope){
-        $scope.studentNo='01';
-        $scope.studentName='天才';
-        $scope.Totle=function(){
-            return $scope.studentNo+''+$scope.studentName;
-        }
-    })
-    </script>
-    <script scr="assets/js/namesController.js"></script>
+    <script src="assets/lib/angular.min.js"></script>
+    <script src="assets/js/demo.js"></script>
     </head>
-    <body>
-        <div ng-app='myapp' ng-controller='first'>
+    <body ng-app='myapp'>
+        <div ng-controller='first'>
             <input type="text" ng-model='studentNo'></br></br>
             <input type="text" ng-model='studentName'></br>
             学号：{{studentNo}}</br></br>
             姓名：{{studentName}}</br></br>
             总称：{{studentNo}}号{{studentName}}</br></br>
-            {{Totle()}}
+        
         </div>
-        <div ng-app='youapp' ng-controller='second'>
-            <ul ng-repeat="x in names">
+
+
+        <div  ng-controller='second'>
+             <input type="text">
+            <ul ng-repeat='item in names' | filter:test>
                 <li>
-                    {{ x.name + ', ' + x.country }}
+                    {{ item.name + ', ' + item.country }}
                 </li>
             </ul>  
         </div>
+
+
+        <div ng-controller="third">
+<!--             <input type="number" ng-model='lastname'>
+ -->            <p> {{lastname | currency}}</p>
+        </div>
+
+
+        <div ng-controller="four">
+            <select>
+                <option ng-repeat="item in names">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+
+
+        <div ng-controller="five">
+            <button ng-click="count=count+1">ss按钮</button>
+            {{count}}
+        </div>
+
+        <p>{{'Hello'.toUpperCase()}}</p>
+        <p>{{{'ename':'Tom'}.ename}}</p>
+        <p>{{['Tom','Mary'][1]}}</p>
+
+        <div data-ng-bind='age'>原始内容</div>
     </body>
 </html>
 
 
-
-<!--         Your name: <input type="text" ng-model="yourname" placeholder="World">
-<hr>
-Hello {{yourname || 'World'}}! -->

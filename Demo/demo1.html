@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="assets/lib/angular.min.js"></script>
+    <script src="assets/js/demo1.js"></script>
+<body ng-app="myapp">
+    <div  >
+        <table>
+            <thead>
+             <tr>
+                 <td>序号</td>
+                 <td>名称</td>
+                 <td>价格</td>
+                 <td>生产日期</td>
+                 <td>是否特价</td>
+             </tr>              
+            </thead>
+            <tbody  ng-controller="food">
+            <tr ng-repeat="item in items" ng-if="item.price>=2.5&&item.isOnSale">
+                <td>{{$index+1}}</td>
+                <td>{{item.pname}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.pdate |date:'yyyy-MM-dd '}}</td>
+                <td>{{item.isOnSale?'是':'否'}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <button ng-click="setValue()">加载更多</button>
+    </div>
+</body>
+</html>

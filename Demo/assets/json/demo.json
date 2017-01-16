@@ -1,0 +1,30 @@
+{
+   "TotalCount":20,
+   "PageIndex":2,
+   "PageSize":4,
+   "PageCount":5,
+   "items":[
+       {
+        "pname": "可口可乐",
+         "price": 3.0,
+          "pdate": "new Date(2015, 8, 3)",
+          "isOnSale": false
+      },
+      {
+          "pname": "百事可乐",
+          "price": 2.5,
+          "pdate": "new Date(2015, 7, 3)",
+          "isOnSale": true
+      }
+      {
+          "pname": "芬达",
+          "price": 2.8,
+          "pdate": "new Date(2015, 5, 2)",
+          "isOnSale": "true"
+      },
+      {
+          "pnam": "七喜",
+          "price": 2.3,
+          "pdate": "new Date(2015, 2, 15)",
+          "isOnSale": true
+      }
