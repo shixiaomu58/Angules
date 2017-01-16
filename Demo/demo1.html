@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>无标题文档</title>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
 </head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <script src="assets/lib/angular.min.js"></script>
-    <script src="assets/js/demo1.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="assets/lib/angular.min.js"></script>
+<script src="assets/js/demo1.js"></script>
 <body ng-app="myapp">
+<!-- //点击加载更多获取数据 -->
     <div ng-controller="food" >
         <table>
             <thead>
@@ -18,8 +19,8 @@
                  <td>生产日期</td>
                  <td>是否特价</td>
              </tr>              
-            </thead>
-            <tbody >
+         </thead>
+         <tbody >
             <tr ng-repeat="item in items" ng-if="item.price>=2.5&&item.isOnSale">
                 <td>{{$index+1}}</td>
                 <td>{{item.pname}}</td>
@@ -27,9 +28,19 @@
                 <td>{{item.pdate |date:'yyyy-MM-dd '}}</td>
                 <td>{{item.isOnSale?'是':'否'}}</td>
             </tr>
-            </tbody>
-        </table>
-        <button ng-click="setValue">加载更多</button>
+        </tbody>
+    </table>
+    <button ng-click="setValue()">加载更多</button>
+    </div>
+
+<!--     完整版的购物车计算器-->    
+    </br></br></br></br></br></br>
+    <div ng-controller="Calculation">
+        <button>添加商品</button>
+        <div ng-repeat="item in items" >单价：{{item.price}}  数量：<input type="number" placeholder="请输入数量" ng-model='size' >  小计：{{item.price*size |number:2}}</div>
+        </br></br>
+        总计：{{Total}}
+
     </div>
 </body>
 </html>

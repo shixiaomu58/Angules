@@ -1,25 +1,32 @@
 var app=angular.module('myapp',[]);
 app.controller('food',function($scope,$http){
     $scope.index=1;
-    var response='';
+    // var response='';
     $http.post('assets/json/demo.json').then(function(res){
         console.log(res);
-        response=res.data;
-        $scope.items=response.items;       
+        // response=res.data;
+        $scope.items=res.data.items;       
     })
-        $scope.setValue=function(){
+    $scope.setValue=function(){
         $http.post('assets/json/demo.json').then(function(res){
-        response=concat(res.data,response);
-        console.log(response);
-        $scope.items=response.items;       
-    })
+            // response=response.items.concat(res.data.items);
+            // console.log(response);
+            $scope.items=$scope.items.concat(res.data.items);       
+        })
     }
-    //     }
-
-
-
 })
 
+app.controller('Calculation', function($scope,$http){
+    var response=''
+    $http.get('assets/json/demo1.json').then(function(res){
+        console.log(res);
+        $scope.items=res.data.items;
+        
+    })
+
+
+    
+})
 
     // var spanPro=function(name.addtime){
     //  Name:name,
