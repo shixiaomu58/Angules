@@ -37,10 +37,10 @@
     </br></br></br></br></br></br>
     <div ng-controller="Calculation">
         <button>添加商品</button>
-        <div ng-repeat="item in items" >单价：{{item.price}}  数量：<input type="number" placeholder="请输入数量" ng-model='size' >  小计：{{item.price*size |number:2}}</div>
+        <div ng-repeat="item in items" >单价：{{item.price}}  数量：<input type="number" placeholder="请输入数量"  ng-model='item.size' >  
+        小计：{{item.price*item.size |number:2}}</div>
         </br></br>
-        总计：{{Total}}
-
+        总计：{{totalPrice |number:2}}
     </div>
 </body>
 </html>

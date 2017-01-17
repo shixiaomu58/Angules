@@ -17,11 +17,15 @@ app.controller('food',function($scope,$http){
 })
 
 app.controller('Calculation', function($scope,$http){
-    var response=''
-    $http.get('assets/json/demo1.json').then(function(res){
-        console.log(res);
-        $scope.items=res.data.items;
-        
+    $http.get('assets/json/demo1.json').then(function(respon){
+        console.log(respon);
+        $scope.items=respon.data.items;
+        var GettotalPrice=function(){
+        for (var i=0;i<$scope.items.length;i++)
+        var item=$scope.items[i]
+            $scope.totalPrice +=item.price*item.size;
+        }
+        GettotalPrice ();
     })
 
 
